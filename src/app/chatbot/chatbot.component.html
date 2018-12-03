@@ -1,0 +1,46 @@
+<div class="chat">
+  <div class="wrapper">
+    <div class="content">
+      <div class="chatbox">
+        <div class="person">
+          <span class="avatar">
+            <img src="https://i.imgur.com/reQMPMD.png" alt="Ranjith Bot" />
+            <span class="status online"></span>
+          </span>
+          <span class="info">
+            <span class="name">Ranjith Bot</span>
+            <span class="login-status">Online</span>
+          </span>
+        </div><!-- /.person -->
+
+        <div class="chatbox-messages">
+          <div *ngFor="let message of listMessage" class="messages clear">
+            <div *ngIf="message.user=='User'" class="user">
+              <div class="message-container">
+                <div class="message">
+                  <p>{{message.message}}</p>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="message.user=='Bot'" class="sender">
+              <div class="message-container">
+                <div class="message">
+                  <p>{{message.message}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="message-form-container">
+          <form class="message-form" [formGroup]='messageForm' (ngSubmit)="onSubmit()">
+            <textarea id="message" name="message" placeholder="Type a message here..." formControlName="message"></textarea>
+            <button class="send-btn" type="submit">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.2 30.1">
+                <path class="st0" d="M2.1 14.6C8.9 12 28.5 4 28.5 4l-3.9 22.6c-0.2 1.1-1.5 1.5-2.3 0.8l-6.1-5.1 -4.3 4 0.7-6.7 13-12.3 -16 10 1 5.7 -3.3-5.3 -5-1.6C1.5 15.8 1.4 14.8 2.1 14.6z" /></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
